@@ -4,19 +4,20 @@ import styles from "./styles";
 import { connect } from "react-redux";
 
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./theme";
+import materialTheme from "./theme";
 
 import Header from "./components/header/header";
+import Boards from "./components/boards/boards-block";
 
 const App = (props) => {
   const classes = styles();
   const { theme: { darkMode } } = props;
 
   return (
-    <ThemeProvider theme={theme(darkMode)}>
+    <ThemeProvider theme={materialTheme(darkMode)}>
       <div className={classes.root}>
         <Header />
-
+        <Boards />
       </div>
     </ThemeProvider>
   );
@@ -27,6 +28,5 @@ const mapStateToProps = ({ theme }) => {
     theme: theme
   }
 }
-
 
 export default connect(mapStateToProps)(App);

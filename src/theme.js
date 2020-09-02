@@ -18,8 +18,10 @@ const theme = (darkMode) => {
       },
     },
     palette: {
-      mainBg: darkMode ? "#2e2e2e" : "#ebebeb",
-      mainFt: darkMode ? "#ebebeb" : "#2e2e2e"
+      primary: {
+        main: darkMode ? "#2e2e2e" : "#ebebeb",
+        secondary: darkMode ? "#ebebeb" : "#2e2e2e"
+      },
     },
   });
 
