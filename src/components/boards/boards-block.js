@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./boards-block-styles";
 
 import { connect } from "react-redux";
-import { addBoard } from "../../redux/boards/actions/boards-actions";
+import { addBoard } from "../../redux/boards/boards-actions";
 import { Button, TextField } from '@material-ui/core/';
 
 import Board from "./board";
@@ -32,7 +32,7 @@ const Boards = (props) => {
   return (
     <div className={classes.root}>
       {
-        boards?.map(board => <Board board={board} />)
+        boards?.map(board => <Board key={board.id} board={board} />)
       }
       {
         isAddingBoard ?

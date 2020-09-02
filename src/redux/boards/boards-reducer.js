@@ -1,21 +1,16 @@
 import uniqID from "uniqid";
-const INITIAL_STATE = {
-  boards: []
-}
+const INITIAL_STATE = [];
 
 const themeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "ADD_BOARD":
-      return {
+      return [
         ...state,
-        boards: [
-          ...state.boards,
-          {
-            id: uniqID("board-"),
-            name: action.payload
-          }
-        ]
-      }
+        {
+          id: uniqID("board-"),
+          name: action.payload
+        }
+      ]
     default:
       return state
   }

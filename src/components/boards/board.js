@@ -1,19 +1,21 @@
 import React from "react";
+import styles from "./boards-styles";
 
 const Board = ({ board }) => {
-  console.log("boards111", board);
+  const classes = styles();
+
   return (
-    <div>
-      <div>
+    <div className={classes.root}>
+      <div className="board-header">
         {board.name}
       </div>
-      <div>
+      <div className="board-cards">
         {
           board.cards?.length ?
             (
               board.cards.map(card => (
-                <div>
-                  {card}
+                <div className="card">
+                  {card.name}
                 </div>
               ))
             )

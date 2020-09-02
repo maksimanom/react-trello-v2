@@ -2,11 +2,19 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   root: {
-    height: "calc( 100% - 50px )",
+    width: 250,
     marginTop: 5,
-    padding: 20,
+    padding: 5,
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.secondary,
-    display: "flex",
+    "& .board-header": {
+      display: "flex",
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: 20
+    },
+    "& .board-cards": {
+      padding: "10px 0"
+    }
   },
 }));
