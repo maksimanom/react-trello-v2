@@ -11,7 +11,7 @@ const themeReducer = (state = INITIAL_STATE, action) => {
         boards: [
           ...state.boards,
           {
-            id: uniqID(),
+            id: uniqID("board-"),
             name: action.payload
           }
         ]

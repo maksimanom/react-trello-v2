@@ -27,11 +27,12 @@ const Boards = (props) => {
     setIsAddingBoard(!isAddingBoard);
     setNewBoardName("");
   }
-
+  
+  console.log(boards);
   return (
     <div className={classes.root}>
       {
-        boards.length && boards.map(board => <Board board={board} />)
+        boards?.map(board => <Board board={board} />)
       }
       {
         isAddingBoard ?
