@@ -10,9 +10,10 @@ import Header from "./components/header/header";
 
 const App = (props) => {
   const classes = styles();
-  console.log("aaaaa", props);
+  const { theme: { darkMode } } = props;
+
   return (
-    <ThemeProvider theme={theme(props.darkMode)}>
+    <ThemeProvider theme={theme(darkMode)}>
       <div className={classes.root}>
         <Header />
 
@@ -21,10 +22,11 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ theme }) => {
   return {
-    darkMode: state.darkMode
+    theme: theme
   }
 }
+
 
 export default connect(mapStateToProps)(App);

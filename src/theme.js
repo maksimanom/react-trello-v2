@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const theme = (type) => {
+const theme = (darkMode) => {
   return createMuiTheme({
     overrides: {
       MuiCssBaseline: {
@@ -18,8 +18,8 @@ const theme = (type) => {
       },
     },
     palette: {
-      mainBg: "#3F51B5",
-      mainFt: "#ffffff"
+      mainBg: darkMode ? "#2e2e2e" : "#ebebeb",
+      mainFt: darkMode ? "#ebebeb" : "#2e2e2e"
     },
   });
 
