@@ -11,10 +11,20 @@ export default makeStyles((theme) => ({
       display: "flex",
       justifyContent: 'center',
       alignItems: 'center',
-      fontSize: 20
+      fontSize: 20,
+      borderBottom: `1px solid ${theme.palette.primary.secondary}`,
+      paddingBottom: 10
     },
     "& .board-cards": {
       padding: "10px 0"
+    },
+    "& .board-footer": {
+      display: "flex",
+      justifyContent: "space-between",
+      "& .MuiButton-root":{
+        fontSize: 12,
+        padding: 5,
+      },
     }
   },
 }));

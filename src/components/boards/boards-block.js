@@ -7,39 +7,39 @@ import { Button, TextField } from '@material-ui/core/';
 
 import Board from "./board";
 
+const INIT_STATE = {
+  name: "",
+  visible: false
+}
 const Boards = (props) => {
   const classes = styles();
   const { boards, addBoard } = props;
-  const [isAddingBoard, setIsAddingBoard] = React.useState(false);
-  const [newBoardName, setNewBoardName] = React.useState("");
+  const [addingBoardState, setAddingBoardState] = React.useState(INIT_STATE);
 
   const handleClick = () => {
-    setIsAddingBoard(!isAddingBoard);
+    setAddingBoardState(prev => ({ ...prev, visible: !addingBoardState.visible }));
   }
 
   const handleChange = ({ currentTarget: { value } }) => {
-    setNewBoardName(value);
+    setAddingBoardState(prev => ({ ...prev, name: value }));
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addBoard(newBoardName);
-    setIsAddingBoard(!isAddingBoard);
-    setNewBoardName("");
+    addBoard(addingBoardState.name);
+    setAddingBoardState(INIT_STATE);
   }
-  
-  console.log(boards);
+
   return (
     <div className={classes.root}>
       {
         boards?.map(board => <Board key={board.id} board={board} />)
       }
       {
-        isAddingBoard ?
+        addingBoardState.visible ?
           (
             <form>
               <TextField
-                value={newBoardName}
+                value={addingBoardState.name}
                 onChange={handleChange}
               />
               <Button
@@ -56,6 +56,7 @@ const Boards = (props) => {
               variant="contained"
               color="primary"
               onClick={handleClick}
+              className="add-board-button"
             >
               Add board
             </Button>

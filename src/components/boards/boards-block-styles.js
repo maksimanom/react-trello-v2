@@ -8,5 +8,8 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.secondary,
     display: "flex",
+    "& .add-board-button": {
+      margin: "0 10px"
+    }
   },
 }));

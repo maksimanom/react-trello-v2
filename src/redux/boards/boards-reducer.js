@@ -1,6 +1,8 @@
 import uniqID from "uniqid";
-const INITIAL_STATE = [];
+import { addCard } from "./boards-utils";
+import { act } from "react-dom/test-utils";
 
+const INITIAL_STATE = [];
 const themeReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "ADD_BOARD":
@@ -8,9 +10,13 @@ const themeReducer = (state = INITIAL_STATE, action) => {
         ...state,
         {
           id: uniqID("board-"),
-          name: action.payload
+          name: action.payload,
+          cards: []
         }
       ]
+    case "ADD_CARD":
+      const newState = addCard(state, action.payload);
+      return newState
     default:
       return state
   }
